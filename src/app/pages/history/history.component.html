@@ -1,0 +1,22 @@
+<div class="history-bg"></div>
+<div class="history-container mat-typography">
+  <h2>Game History</h2>
+  <div class="history-list" *ngIf="history.length; else noHistory">
+    <div class="history-entry mat-elevation-z1" *ngFor="let entry of history; let i = index">
+      <div class="history-header">
+        <span class="date">{{ entry.createdAt | date:'short' }}</span>
+        <span class="game-type">{{ entry.gameType | titlecase }}</span>
+      </div>
+      <div class="history-winners">
+        <span *ngFor="let winner of entry.winners" class="winner-badge">{{ winner.avatar }} {{ winner.name }} <span class="score">({{ winner.score }})</span></span>
+      </div>
+      <div class="history-players">
+        <span *ngFor="let player of entry.players" class="player-badge">{{ player.avatar }} {{ player.name }}</span>
+      </div>
+      <div class="history-rounds">Rounds: {{ entry.rounds.length }}</div>
+    </div>
+  </div>
+  <ng-template #noHistory>
+    <div class="no-history">No history yet. Play a game to see history here!</div>
+  </ng-template>
+</div>

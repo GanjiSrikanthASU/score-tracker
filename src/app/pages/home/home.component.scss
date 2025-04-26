@@ -1,0 +1,146 @@
+@use '../../../styles/theme.scss' as *;
+
+.home-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -2;
+  background: url('/assets/images/home-bg.jpg') center/cover no-repeat fixed;
+  opacity: 1;
+  transition: opacity 0.7s;
+}
+
+.home-branding {
+  position: absolute;
+  top: 2.2rem;
+  left: 2.2rem;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  font-family: 'Orbitron', 'Poppins', 'Inter', Arial, sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  color: #fffbe7;
+  text-shadow: 0 2px 12px #000, 0 0 2px #ffd700;
+}
+.logo {
+  font-size: 2.1rem;
+  margin-right: 0.6rem;
+}
+.brand-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-nav-only {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 70vh;
+  width: 100%;
+  margin: 7rem auto 3.5rem auto;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.tagline-rotator {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-size: 1.12rem;
+  color: #fffbe7;
+  margin-bottom: 1.6rem;
+  min-height: 2.2rem;
+  text-align: center;
+  text-shadow: 0 2px 8px #000, 0 0 1px #ffd700;
+  animation: fadeInTagline 1s;
+}
+@keyframes fadeInTagline {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+.home-nav {
+  display: flex;
+  gap: 1.1rem;
+  margin-bottom: 2.1rem;
+  justify-content: center;
+  width: 100%;
+}
+.nav-link {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-size: 1.04rem;
+  color: #fffbe7;
+  text-decoration: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.11);
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+  margin: 0 0.2rem;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+  letter-spacing: 0.04em;
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+}
+.nav-link:hover, .nav-link:focus {
+  background: #ffd700;
+  color: #22223b;
+  box-shadow: 0 0 18px 4px #ffd70044;
+}
+.cta {
+  background: linear-gradient(90deg, #ffd700 0%, #ffb347 100%);
+  color: #22223b;
+  font-weight: 700;
+  box-shadow: 0 0 18px 4px #ffd70055;
+  border: 2px solid #fffbe7;
+  transition: filter 0.22s, box-shadow 0.22s;
+  filter: brightness(1.13) saturate(1.06);
+}
+.cta:hover, .cta:focus {
+  filter: brightness(1.19) saturate(1.13);
+  box-shadow: 0 0 32px 6px #ffd70088, 0 0 8px 2px #fffbe7;
+}
+
+.footer-note {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 1.1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #fffbe7;
+  opacity: 0.50;
+  transition: opacity 0.3s;
+  z-index: 10;
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+}
+.footer-note:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* Placeholder for confetti/card fall animation */
+}
+
+@media (max-width: 700px) {
+  .home-nav-only {
+    max-width: 98vw;
+    margin: 5rem 1vw 2.5rem 1vw;
+    padding: 0;
+  }
+  .home-branding {
+    top: 1.1rem;
+    left: 1.1rem;
+    font-size: 1.1rem;
+  }
+}

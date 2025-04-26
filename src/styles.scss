@@ -1,0 +1,78 @@
+@use '@angular/material' as mat;
+@use 'styles/theme.scss' as *;
+@use 'styles/fonts.css' as *;
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { 
+  font-family: $font-family;
+  margin: 0; 
+  min-height: 100vh;
+  background: transparent;
+  color: #22223b;
+  transition: background $transition, color $transition;
+}
+
+:host-context(.dark-mode) body {
+  color: #fffbe7;
+}
+
+// Fade-in for page load
+.app-fade-in {
+  animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+// Button glow and transitions
+button, .mat-raised-button, .mat-stroked-button {
+  border-radius: $border-radius;
+  font-family: $font-family;
+  box-shadow: 0 2px 12px $color-btn-shadow;
+  transition: box-shadow $transition, background $transition, color $transition, filter $transition;
+}
+button:hover, .mat-raised-button:hover, .mat-stroked-button:hover {
+  box-shadow: 0 0 16px 4px $color-btn-glow;
+  filter: brightness(1.08) saturate(1.1);
+}
+:host-context(.dark-mode) button, :host-context(.dark-mode) .mat-raised-button, :host-context(.dark-mode) .mat-stroked-button {
+  box-shadow: 0 2px 12px $color-btn-shadow-dark;
+}
+:host-context(.dark-mode) button:hover, :host-context(.dark-mode) .mat-raised-button:hover, :host-context(.dark-mode) .mat-stroked-button:hover {
+  box-shadow: 0 0 16px 4px $color-btn-glow-dark;
+}
+
+// Text shadow for readability
+h1, h2, h3, h4, h5, h6, .themed-title {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.16), 0 0px 1px #fffbe7;
+  letter-spacing: 0.01em;
+}
+:host-context(.dark-mode) h1, :host-context(.dark-mode) h2, :host-context(.dark-mode) h3, :host-context(.dark-mode) h4, :host-context(.dark-mode) h5, :host-context(.dark-mode) h6, :host-context(.dark-mode) .themed-title {
+  text-shadow: 0 2px 12px #000, 0 0px 1px #ffd700;
+}
+
+// Responsive helpers
+@media (max-width: 600px) {
+  .home-container, .setup-container, .scoreboard-container, .leaderboard-container, .history-container {
+    padding: 1rem !important;
+    margin: 1rem auto !important;
+    border-radius: 1rem !important;
+    max-width: 98vw !important;
+  }
+}

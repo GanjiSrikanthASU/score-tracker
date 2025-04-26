@@ -1,0 +1,21 @@
+// Theme variables for vivid, immersive backgrounds and glassmorphism
+$font-family: 'Poppins', 'Inter', Arial, sans-serif;
+$border-radius: 1.5rem;
+$shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+$glass-bg: rgba(255,255,255,0.22);
+$glass-bg-dark: rgba(30,30,30,0.35);
+$glass-blur: blur(14px);
+$transition: 0.35s cubic-bezier(.4,0,.2,1);
+
+// Section color themes
+$color-home: #00f2fe;
+$color-setup: #ffb347;
+$color-scoreboard: #00ffe7;
+$color-leaderboard: #ffd700;
+$color-history: #ff7f50;
+$color-footer: #22223b;
+
+$color-btn-glow: #fffbe7;
+$color-btn-shadow: #ffb347;
+$color-btn-glow-dark: #ffd700;
+$color-btn-shadow-dark: #7f53ac;

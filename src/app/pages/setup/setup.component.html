@@ -1,0 +1,47 @@
+<div class="setup-bg"></div>
+<div class="setup-container mat-typography app-fade-in">
+  <div class="stepper">
+    <div class="step active">1<span>Setup</span></div>
+    <div class="step">2<span>Scoreboard</span></div>
+    <div class="step">3<span>Leaderboard</span></div>
+  </div>
+  <h1 class="game-title flicker">Game Setup</h1>
+  <form [formGroup]="form" (ngSubmit)="startGame()" class="futuristic-form">
+    <mat-form-field appearance="outline" class="neon-field">
+      <mat-label>Player Names (2–12)</mat-label>
+      <input matInput placeholder="Comma separated (e.g. Alice, Bob, Carol)" formControlName="playerNames" />
+      <mat-hint *ngIf="playerNameList.length < minPlayers || playerNameList.length > maxPlayers">
+        Enter between {{minPlayers}} and {{maxPlayers}} names
+      </mat-hint>
+    </mat-form-field>
+    <div class="game-type-row">
+      <mat-form-field appearance="outline" class="game-type-field neon-field">
+        <mat-label>Game Type</mat-label>
+        <mat-select formControlName="gameType">
+          <mat-option value="rummy">Rummy</mat-option>
+          <mat-option value="least-count">Least Count</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="info-icon" matTooltip="Rummy, Least Count, or custom card games">ⓘ</span>
+    </div>
+    <div class="avatar-picker">
+      <label class="glowing">Pick Avatars:</label>
+      <div class="avatar-list">
+        <ng-container *ngFor="let avatar of avatars">
+          <button type="button" class="avatar-option" [ngClass]="{'selected': selectedAvatars.includes(avatar)}"
+            (click)="pickAvatar(avatar)" [disabled]="selectedAvatars.includes(avatar) || selectedAvatars.length >= playerNameList.length">
+            <span class="avatar-emoji">{{avatar}}</span>
+          </button>
+        </ng-container>
+      </div>
+      <div class="selected-avatars">
+        <span *ngFor="let avatar of selectedAvatars" class="selected-avatar">
+          {{avatar}} <button mat-icon-button type="button" (click)="removeAvatar(avatar)"><mat-icon>close</mat-icon></button>
+        </span>
+      </div>
+    </div>
+    <button class="cta-start neon-cta" type="submit" [disabled]="form.invalid || playerNameList.length < minPlayers || playerNameList.length > maxPlayers || selectedAvatars.length !== playerNameList.length">
+      🎮 Start Game
+    </button>
+  </form>
+</div>

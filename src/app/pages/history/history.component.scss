@@ -1,0 +1,128 @@
+@use '../../../styles/theme.scss' as *;
+
+.history-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -2;
+  background: url('/assets/images/history-bg.jpg') center/cover no-repeat fixed;
+  opacity: 1;
+  transition: opacity 0.7s;
+}
+:host-context(.dark-mode) .history-bg {
+  background: url('/assets/images/history-bg.jpg') center/cover no-repeat fixed;
+  opacity: 1;
+}
+
+.history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2.5rem 2rem;
+  margin: 2.5rem auto;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  background: linear-gradient(120deg, rgba(255,127,80,0.13) 0%, $glass-bg 90%);
+  backdrop-filter: $glass-blur;
+  max-width: 640px;
+  transition: background $transition, box-shadow $transition;
+  animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+:host-context(.dark-mode) .history-container {
+  background: linear-gradient(120deg, rgba(255,127,80,0.08) 0%, $glass-bg-dark 90%);
+}
+
+.themed-title {
+  color: $color-history;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 8px #ff7f5044, 0 0px 1px #fffbe7;
+}
+
+.history-list {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.history-entry {
+  background: rgba(255,255,255,0.96);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  animation: fadeInUp 0.7s;
+}
+:host-context(.dark-mode) .history-entry {
+  background: rgba(40,40,40,0.97);
+  color: #fff;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.history-winners {
+  margin-top: 0.5rem;
+}
+
+.winner-badge {
+  background: #ffe082;
+  color: #c68600;
+  border-radius: 1em;
+  padding: 0.2em 0.8em;
+  margin-right: 0.7em;
+  font-weight: bold;
+  transition: background 0.4s, color 0.4s;
+}
+:host-context(.dark-mode) .winner-badge {
+  background: #333;
+  color: gold;
+}
+
+.player-badge {
+  background: #e0e0e0;
+  border-radius: 1em;
+  padding: 0.1em 0.6em;
+  margin-right: 0.6em;
+  transition: background 0.4s, color 0.4s;
+}
+:host-context(.dark-mode) .player-badge {
+  background: #232526;
+  color: #fffde7;
+}
+
+.history-rounds {
+  color: #888;
+  font-size: 0.95em;
+}
+:host-context(.dark-mode) .history-rounds {
+  color: #ffe082;
+}
+
+.no-history {
+  color: #888;
+  margin-top: 2rem;
+  font-size: 1.1em;
+}
+:host-context(.dark-mode) .no-history {
+  color: #ffe082;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

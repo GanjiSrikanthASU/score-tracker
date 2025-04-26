@@ -1,0 +1,77 @@
+<div class="scoreboard-bg"></div>
+<div class="scoreboard-container mat-typography" #scoreboardCard>
+  <div class="floating-chip chip1">🃏</div>
+  <div class="floating-chip chip2">💎</div>
+  <div class="floating-chip chip3">♠️</div>
+  <h2 class="themed-title">Live Scoreboard</h2>
+  <div id="confetti-canvas"></div>
+  <div class="scoreboard-table-wrapper">
+    <table mat-table [dataSource]="players" class="mat-elevation-z2 scoreboard-table">
+      <ng-container matColumnDef="avatar">
+        <th mat-header-cell *matHeaderCellDef>Avatar</th>
+        <td mat-cell *matCellDef="let player">{{ player.avatar }}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let player">{{ player.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef="let player; let i = index">
+          <span [ngClass]="'total-badge score-badge rank-' + ranks[i]">{{ totalScores[i] }}</span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="rank">
+        <th mat-header-cell *matHeaderCellDef>Rank</th>
+        <td mat-cell *matCellDef="let player; let i = index">
+          <span class="rank-badge">{{ ranks[i] }} <ng-container *ngIf="ranks[i] === 1">🏆</ng-container></span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="penalties">
+        <th mat-header-cell *matHeaderCellDef>Penalties</th>
+        <td mat-cell *matCellDef="let player">
+          <span class="penalty-badge badge-fifty" *ngIf="player.penalties?.fifty">50s: {{ player.penalties.fifty }}</span>
+          <span class="penalty-badge badge-zero" *ngIf="player.penalties?.zero">0s: {{ player.penalties.zero }}</span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="['avatar','name','total','rank','penalties']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['avatar','name','total','rank','penalties']"></tr>
+    </table>
+  </div>
+  <div class="scoreboard-actions">
+    <button mat-raised-button color="primary" (click)="openAddRoundModal()">Add Round Score</button>
+    <button mat-stroked-button color="warn" (click)="undoLastRound()" [disabled]="!rounds.length">Undo Last Round</button>
+    <button mat-flat-button color="accent" class="finish" (click)="finishGame()">Finish Game</button>
+    <button mat-stroked-button color="primary" (click)="exportScores()">Export Scores</button>
+  </div>
+</div>
+
+<!-- Game Summary Overlay -->
+<div *ngIf="showSummary" class="game-summary-overlay">
+  <div class="game-summary-card">
+    <h2 class="summary-header">🏆 Game Over – Winners</h2>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Avatar</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of summaryData" [ngClass]="{'winner-row': p.isWinner}">
+          <td>
+            {{p.rank}}
+            <span *ngIf="p.isWinner" class="trophy">🏆</span>
+          </td>
+          <td><span class="avatar">{{p.avatar}}</span></td>
+          <td>{{p.name}}</td>
+          <td>{{p.score}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button mat-raised-button color="primary" (click)="closeGameSummary()">Close</button>
+  </div>
+  <!-- Confetti canvas or animation can be layered here if desired -->
+</div>

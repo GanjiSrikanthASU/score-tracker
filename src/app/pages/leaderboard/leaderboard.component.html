@@ -1,0 +1,43 @@
+<div class="leaderboard-bg"></div>
+<div class="confetti-canvas" #confettiCanvas></div>
+<div class="leaderboard-award-wrapper">
+  <!-- Podium for Top 3 -->
+  <div class="podium">
+    <div class="podium-slot second spotlight" [@podiumAnim]="topThree[1].name">
+      <div class="spotlight-circle">
+        <img *ngIf="topThree[1] && topThree[1].avatar" [src]="topThree[1].avatar" alt="Avatar" />
+      </div>
+      <div class="podium-rank">2</div>
+      <div class="podium-name">{{topThree[1] && topThree[1].name}}</div>
+      <div class="podium-score">{{topThree[1] && topThree[1].score}}</div>
+    </div>
+    <div class="podium-slot first spotlight" [@podiumAnim]="topThree[0].name">
+      <div class="crown-icon"><span class="crown">👑</span></div>
+      <div class="spotlight-circle pulse-glow">
+        <img *ngIf="topThree[0] && topThree[0].avatar" [src]="topThree[0].avatar" alt="Avatar" />
+      </div>
+      <div class="podium-rank">1</div>
+      <div class="podium-name pulse-text">{{topThree[0] && topThree[0].name}}</div>
+      <div class="podium-score pulse-text">{{topThree[0] && topThree[0].score}}</div>
+    </div>
+    <div class="podium-slot third spotlight" [@podiumAnim]="topThree[2].name">
+      <div class="spotlight-circle">
+        <img *ngIf="topThree[2] && topThree[2].avatar" [src]="topThree[2].avatar" alt="Avatar" />
+      </div>
+      <div class="podium-rank">3</div>
+      <div class="podium-name">{{topThree[2] && topThree[2].name}}</div>
+      <div class="podium-score">{{topThree[2] && topThree[2].score}}</div>
+    </div>
+  </div>
+  <!-- Floating Gold Cards for Ranks 4–10 -->
+  <div class="floating-cards">
+    <ng-container *ngFor="let p of others; let i = index">
+      <div class="gold-card" [@cardAnim]="p.name" *ngIf="i < 7">
+        <div class="gold-rank">{{i+4}}</div>
+        <img *ngIf="p.avatar" [src]="p.avatar" alt="Avatar" class="gold-avatar" />
+        <span class="gold-name">{{p.name}}</span>
+        <span class="gold-score">{{p.score}}</span>
+      </div>
+    </ng-container>
+  </div>
+</div>
