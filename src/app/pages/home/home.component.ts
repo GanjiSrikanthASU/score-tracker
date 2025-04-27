@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, MatButtonModule],
+  imports: [RouterModule, MatButtonModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

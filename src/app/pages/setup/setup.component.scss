@@ -444,3 +444,17 @@ input.mat-input-element::placeholder {
     gap: 0.5rem 0.7rem;
   }
 }
+
+.setup-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/images/setup-bg.jpg'); /* 🖼️ Your setup background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  z-index: 0;
+}

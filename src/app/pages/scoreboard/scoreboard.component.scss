@@ -319,4 +319,19 @@ td {
   font-weight: 700;
   border-radius: 8px;
 }
+
+.scoreboard-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/images/score-bg.jpg'); /* <-- Your scoreboard background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Stay inside section */
+  z-index: 0;
+}
+
 // --- End Game Summary Overlay Styles ---

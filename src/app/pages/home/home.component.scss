@@ -122,10 +122,25 @@
   /* Placeholder for confetti/card fall animation */
 }
 
-.home-section, .home-bg, :host {
+.home-section,:host {
   background: none !important;
   background-color: transparent !important;
 }
+
+.home-bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url('/assets/images/home-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+// Removed .home-images-gallery and .gallery-img styles as the gallery is no longer used
 
 @media (max-width: 700px) {
   .home-nav-only {
