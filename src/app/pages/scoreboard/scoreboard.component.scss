@@ -223,6 +223,35 @@ td {
   }
 }
 
+@media (max-width: 480px) {
+  .scoreboard-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+  .scoreboard-container {
+    padding: 0.5rem 0.2rem !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .scoreboard-actions {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    align-items: stretch !important;
+  }
+}
+@media (max-width: 768px) {
+  .scoreboard-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
 // --- Themed Title ---
 .themed-title {
   color: #00ffe7;

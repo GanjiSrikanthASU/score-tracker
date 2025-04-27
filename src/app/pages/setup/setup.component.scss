@@ -445,13 +445,37 @@ input.mat-input-element::placeholder {
   }
 }
 
+@media (max-width: 480px) {
+  .setup-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+  .setup-container {
+    padding: 0.5rem 0.2rem !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .setup-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
 .setup-bg {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/assets/images/setup-bg.jpg'); /* 🖼️ Your setup background */
+  background-image: url('/assets/images/setup-bg.jpg'); /* Your setup background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

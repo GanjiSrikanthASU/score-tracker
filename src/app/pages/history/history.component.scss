@@ -120,10 +120,34 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/assets/images/history-bg.jpg'); /* 🖼️ your history page background */
+  background-image: url('/assets/images/history-bg.jpg'); /* your history page background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   z-index: 0;
+}
+
+@media (max-width: 480px) {
+  .history-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+  .history-container {
+    padding: 0.5rem 0.2rem !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .history-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
 }

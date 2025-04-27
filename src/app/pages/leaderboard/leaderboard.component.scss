@@ -214,5 +214,33 @@
   z-index: 0;
 }
 
+@media (max-width: 480px) {
+  .leaderboard-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+  .leaderboard-container {
+    padding: 0.5rem 0.2rem !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .leaderboard-actions {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    align-items: stretch !important;
+  }
+}
+@media (max-width: 768px) {
+  .leaderboard-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
 
 // Removed .leaderboard-bg background logic. All backgrounds are now global.

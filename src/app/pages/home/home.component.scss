@@ -142,6 +142,24 @@
 
 // Removed .home-images-gallery and .gallery-img styles as the gallery is no longer used
 
+@media (max-width: 480px) {
+  .home-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+  .home-nav {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    align-items: stretch !important;
+  }
+  .tagline-rotator span {
+    font-size: 1.1rem !important;
+  }
+}
+
 @media (max-width: 700px) {
   .home-nav-only {
     max-width: 98vw;
@@ -152,5 +170,15 @@
     top: 1.1rem;
     left: 1.1rem;
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
   }
 }

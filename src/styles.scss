@@ -18,16 +18,29 @@ html {
 }/* You can add global styles to this file, and also import other style files */
 
 html, body { 
+  width: 100vw;
+  min-width: 320px;
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   background: none !important;
   height: 100%; 
 }
+
 body { 
-  font-family: $font-family;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  background: #fafafa;
+  color: #222;
   margin: 0; 
   min-height: 100vh;
-  color: #22223b;
   transition: background $transition, color $transition;
-  background: none !important;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 :host-context(.dark-mode) body {
@@ -78,4 +91,74 @@ h1, h2, h3, h4, h5, h6, .themed-title {
     border-radius: 1rem !important;
     max-width: 98vw !important;
   }
+}
+
+// Responsive breakpoints for all main sections
+@media (max-width: 480px) {
+  .spa-section, .setup-container, .scoreboard-container, .leaderboard-container, .history-container {
+    padding: 0.5rem 0.2rem !important;
+    min-height: 100vh;
+    height: auto;
+    width: 100vw;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  h1, .themed-title, .game-title {
+    font-size: 1.5rem !important;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  button, .mat-raised-button, .mat-stroked-button, .nav-link, .cta, .neon-cta {
+    font-size: 1rem !important;
+    padding: 1.1em 1.4em !important;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 10px !important;
+  }
+  .home-nav, .scoreboard-actions, .leaderboard-actions {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    align-items: stretch !important;
+  }
+  p, .footer-note {
+    font-size: 0.98rem;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .spa-section, .setup-container, .scoreboard-container, .leaderboard-container, .history-container {
+    padding: 1rem 0.5rem !important;
+    min-height: 100vh;
+    width: 100vw;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 16px #0001;
+  }
+  h1, .themed-title, .game-title {
+    font-size: 2rem !important;
+  }
+  button, .mat-raised-button, .mat-stroked-button, .nav-link, .cta, .neon-cta {
+    font-size: 1.1rem !important;
+    padding: 1.1em 1.8em !important;
+    min-width: 52px;
+    min-height: 52px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .spa-section, .setup-container, .scoreboard-container, .leaderboard-container, .history-container {
+    padding: 2rem 1rem !important;
+    min-height: 100vh;
+    width: 100vw;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 24px #0002;
+  }
+  h1, .themed-title, .game-title {
+    font-size: 2.5rem !important;
+  }
+}
+
+// Prevent side scrolling
+body, html {
+  overflow-x: hidden !important;
 }
