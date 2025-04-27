@@ -70,6 +70,10 @@ export class SetupComponent {
       createdAt: new Date().toISOString()
     };
     this.gs.save(state);
-    this.router.navigate(['/scoreboard']);
+    // Scroll to the scoreboard section instead of router navigation
+    setTimeout(() => {
+      document.getElementById('scoreboard')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    // this.router.navigate(['/scoreboard']);
   }
 }
