@@ -1,6 +1,8 @@
 @use '../../../styles/theme.scss' as *;
 
 .setup-container {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -447,13 +449,14 @@ input.mat-input-element::placeholder {
 
 @media (max-width: 480px) {
   .setup-bg {
-    min-height: 100vh;
+    min-height: 100dvh;
     width: 100vw;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
   }
   .setup-container {
+    padding-top: 2.8rem !important;
     padding: 0.5rem 0.2rem !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -461,7 +464,7 @@ input.mat-input-element::placeholder {
 }
 @media (max-width: 768px) {
   .setup-bg {
-    min-height: 100vh;
+    min-height: 100dvh;
     width: 100vw;
     background-size: cover !important;
     background-position: center center !important;
@@ -475,10 +478,12 @@ input.mat-input-element::placeholder {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: -1;
+  min-height: 100dvh;
+  width: 100vw;
   background-image: url('/assets/images/setup-bg.jpg'); /* Your setup background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  z-index: 0;
 }
