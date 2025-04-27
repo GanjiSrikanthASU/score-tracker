@@ -1,17 +1,4 @@
-@use '../../../styles/theme.scss' as *;
-
-.leaderboard-bg {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -2;
-  background: url('/assets/images/leader-bg.jpg') center/cover no-repeat fixed;
-  opacity: 1;
-  transition: opacity 0.7s;
-}
-:host-context(.dark-mode) .leaderboard-bg {
-  background: url('/assets/images/leader-bg.jpg') center/cover no-repeat fixed;
-  opacity: 1;
-}
+// Remove theme import, all variables are already globally available
 
 .confetti-canvas {
   position: fixed;
@@ -64,8 +51,8 @@
   width: 94px;
   height: 94px;
   border-radius: 50%;
-  background: radial-gradient(circle at 60% 35%, #fffbe7 60%, #ffd700 100%);
-  box-shadow: 0 0 40px 10px #ffd70066, 0 0 0 8px #fffbe7cc;
+  background: none;
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,7 +125,7 @@
   margin-top: 1.5rem;
 }
 .gold-card {
-  background: linear-gradient(135deg, #fffbe7 0%, #ffe082 100%);
+  background: none;
   border-radius: 14px;
   box-shadow: 0 0 16px 4px #ffd70044, 0 2px 8px #fffbe7;
   padding: 1rem 1.6rem 1rem 1.2rem;
@@ -212,3 +199,5 @@
   60% { transform: scale(1.12); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
 }
+
+// Removed .leaderboard-bg background logic. All backgrounds are now global.

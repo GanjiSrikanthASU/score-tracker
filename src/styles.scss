@@ -17,14 +17,17 @@ html {
   ));
 }/* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { 
+  background: none !important;
+  height: 100%; 
+}
 body { 
   font-family: $font-family;
   margin: 0; 
   min-height: 100vh;
-  background: transparent;
   color: #22223b;
   transition: background $transition, color $transition;
+  background: none !important;
 }
 
 :host-context(.dark-mode) body {

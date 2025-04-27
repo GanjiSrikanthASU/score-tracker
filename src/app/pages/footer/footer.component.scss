@@ -1,0 +1,29 @@
+.footer-section {
+  width: 100vw;
+  background: rgba(0,0,0,0.75);
+  color: #ffd700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 0;
+  position: relative;
+  bottom: 0;
+  font-family: 'Montserrat', 'Poppins', 'Inter', Arial, sans-serif;
+  z-index: 10;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.footer-links a {
+  color: #ffd700;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #fffbe7;
+  text-shadow: 0 0 10px #ffd700;
+}

@@ -9,7 +9,7 @@
   margin: 2.5rem auto;
   border-radius: 24px;
   box-shadow: 0 0 48px #00fff799, 0 0 8px #fff;
-  background: linear-gradient(120deg, rgba(0,255,255,0.10) 0%, rgba(0,0,0,0.55) 90%);
+  background: none;
   backdrop-filter: blur(16px) saturate(1.3);
   max-width: 760px;
   transition: background 0.5s, box-shadow 0.5s;
@@ -75,13 +75,13 @@ td {
 
 // --- Score & Rank Badges ---
 .total-badge, .score-badge {
-  background: radial-gradient(circle at center, #ff0, #ffc400 90%, #fffbe7 100%);
+  background: none;
   color: #22223b;
   padding: 6px 18px;
   border-radius: 999px;
   font-weight: bold;
   font-size: 1.08rem;
-  box-shadow: 0 0 8px #ffc400, 0 0 2px #fff;
+  box-shadow: 0 0 8px #fff;
   display: inline-block;
   margin: 0 2px;
   letter-spacing: 0.07em;
@@ -89,10 +89,10 @@ td {
   transition: box-shadow 0.22s, background 0.22s;
 }
 .total-badge.rank-1, .score-badge.rank-1 {
-  background: linear-gradient(90deg, gold, #fffde7 80%);
+  background: none;
   color: #c68600;
-  box-shadow: 0 0 18px #ffe082, 0 0 8px gold;
-  border: 2.5px solid gold;
+  box-shadow: 0 0 18px #fff, 0 0 8px #fff;
+  border: 2.5px solid #fff;
   position: relative;
 }
 .total-badge.rank-1::after, .score-badge.rank-1::after {
@@ -102,10 +102,10 @@ td {
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.3em;
-  filter: drop-shadow(0 0 8px gold);
+  filter: drop-shadow(0 0 8px #fff);
 }
 .rank-badge {
-  background: linear-gradient(90deg, #00fff7 10%, #fff 90%);
+  background: none;
   color: #22223b;
   border-radius: 999px;
   padding: 6px 18px;
@@ -123,25 +123,25 @@ td {
 
 // --- Penalty Badges ---
 .penalty-badge {
-  background: linear-gradient(90deg, #ff1744 10%, #fff 90%);
+  background: none;
   color: #fff;
   border-radius: 999px;
   padding: 4px 12px;
   font-weight: 700;
   font-size: 0.98rem;
   margin: 0 2px;
-  box-shadow: 0 0 8px #ff1744cc;
+  box-shadow: 0 0 8px #fff;
   border: 2px solid #fff;
 }
 .badge-fifty {
-  background: linear-gradient(90deg, #ffd600 10%, #fff 90%);
+  background: none;
   color: #22223b;
-  box-shadow: 0 0 8px #ffd600cc;
+  box-shadow: 0 0 8px #fff;
 }
 .badge-zero {
-  background: linear-gradient(90deg, #00e676 10%, #fff 90%);
+  background: none;
   color: #22223b;
-  box-shadow: 0 0 8px #00e676cc;
+  box-shadow: 0 0 8px #fff;
 }
 
 // --- Glowing Cyber Buttons ---
@@ -223,20 +223,6 @@ td {
   }
 }
 
-// --- Scoreboard Background ---
-.scoreboard-bg {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -2;
-  background: url('/assets/images/score-bg.jpg') center/cover no-repeat fixed;
-  opacity: 1;
-  transition: opacity 0.7s;
-}
-:host-context(.dark-mode) .scoreboard-bg {
-  background: url('/assets/images/score-bg.jpg') center/cover no-repeat fixed;
-  opacity: 1;
-}
-
 // --- Themed Title ---
 .themed-title {
   color: #00ffe7;
@@ -281,7 +267,7 @@ td {
   animation: fadeIn 0.7s;
 }
 .game-summary-card {
-  background: linear-gradient(120deg, #fffbe7cc 0%, #00fff799 100%);
+  background: none;
   border-radius: 24px;
   box-shadow: 0 0 32px #00fff799, 0 0 8px #fff;
   padding: 2.5rem 2rem;
@@ -311,25 +297,21 @@ td {
   padding: 0.6em 0.9em;
 }
 .summary-table th {
-  background: #ffe082;
+  background: none;
   color: #333;
 }
 .winner-row {
   font-weight: bold;
-  color: #c68600;
-  background: linear-gradient(90deg, gold, #fffde7);
-  box-shadow: 0 0 24px #ffd70099;
-  animation: winnerGlow 1.2s infinite alternate;
+  color: #22223b;
+  background: none;
+  box-shadow: none;
+  animation: none;
 }
 .trophy {
   font-size: 1.4em;
   margin-left: 0.2em;
   vertical-align: middle;
-  filter: drop-shadow(0 0 6px gold);
-}
-@keyframes winnerGlow {
-  0% { box-shadow: 0 0 24px #ffd70099; }
-  100% { box-shadow: 0 0 48px #ffd700cc; }
+  filter: none;
 }
 .game-summary-card button {
   margin-top: 1.2rem;
