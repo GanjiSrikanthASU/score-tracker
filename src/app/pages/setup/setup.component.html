@@ -24,22 +24,15 @@
       </mat-form-field>
       <span class="info-icon" matTooltip="Rummy, Least Count, or custom card games">ⓘ</span>
     </div>
-    <div class="avatar-picker">
-      <label class="glowing">Pick Avatars:</label>
-      <div class="avatar-list">
-        <ng-container *ngFor="let avatar of avatars">
-          <button type="button" class="avatar-option" [ngClass]="{'selected': selectedAvatars.includes(avatar)}"
-            (click)="pickAvatar(avatar)" [disabled]="selectedAvatars.includes(avatar) || selectedAvatars.length >= playerNameList.length">
-            <span class="avatar-emoji">{{avatar}}</span>
-          </button>
-        </ng-container>
-      </div>
-      <div class="selected-avatars">
-        <span *ngFor="let avatar of selectedAvatars" class="selected-avatar">
-          {{avatar}} <button mat-icon-button type="button" (click)="removeAvatar(avatar)"><mat-icon>close</mat-icon></button>
-        </span>
-      </div>
-    </div>
+    <mat-form-field appearance="outline" class="avatar-select-field neon-field">
+      <mat-label>Pick Avatars</mat-label>
+      <mat-select formControlName="avatars" [(value)]="selectedAvatars" multiple>
+        <mat-option *ngFor="let avatar of avatars" [value]="avatar">
+          <span class="avatar-emoji">{{avatar}}</span>
+        </mat-option>
+      </mat-select>
+      <mat-hint>Select up to {{playerNameList.length}} avatars</mat-hint>
+    </mat-form-field>
     <button class="cta-start neon-cta" type="submit" [disabled]="form.invalid || playerNameList.length < minPlayers || playerNameList.length > maxPlayers || selectedAvatars.length !== playerNameList.length">
       🎮 Start Game
     </button>
